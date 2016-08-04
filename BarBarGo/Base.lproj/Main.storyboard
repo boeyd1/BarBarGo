@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need a drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wns-Cr-fYd">
+                                <rect key="frame" x="0.0" y="20" width="600" height="93"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-3U-Vvp">
+                                <rect key="frame" x="290" y="113" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="W5A-Xf-g7W"/>
+                                    <constraint firstAttribute="width" constant="20" id="fsX-ci-jWk"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="upArrow"/>
+                                <state key="selected" image="downArrow"/>
+                                <connections>
+                                    <action selector="arrowButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZmC-dK-pEE"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Llq-jv-57O">
+                                <rect key="frame" x="0.0" y="166" width="600" height="304"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-ak-Q5y">
+                                <rect key="frame" x="0.0" y="138" width="600" height="29"/>
+                                <segments>
+                                    <segment title="$"/>
+                                    <segment title="$$"/>
+                                    <segment title="$$$"/>
+                                    <segment title="$$$$"/>
+                                </segments>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBl-AT-IPN">
+                                <rect key="frame" x="0.0" y="166" width="600" height="434"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DBl-AT-IPN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="4tL-jL-KVR"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7px-xl-eI5"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="DMM-IQ-tYe"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="top" secondItem="Fpb-ak-Q5y" secondAttribute="bottom" id="GbG-cj-Fzb"/>
+                            <constraint firstItem="wns-Cr-fYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GcJ-UQ-YZL"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="HHi-s6-U4W"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="top" secondItem="wns-Cr-fYd" secondAttribute="bottom" id="Hmz-IP-ga3"/>
+                            <constraint firstItem="DBl-AT-IPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MVZ-xB-9LR"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="QHr-cY-Vf3"/>
+                            <constraint firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="Ut1-eC-rz2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DBl-AT-IPN" secondAttribute="bottom" id="ZfQ-Me-8Ue"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="bottom" secondItem="Fpb-ak-Q5y" secondAttribute="top" constant="-5" id="bqi-8m-cDJ"/>
+                            <constraint firstAttribute="trailing" secondItem="DBl-AT-IPN" secondAttribute="trailing" id="g5w-Tq-zeY"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="ork-bs-UY5"/>
+                            <constraint firstItem="wns-Cr-fYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qX6-mD-B5b"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="uAg-9g-PN8"/>
+                            <constraint firstItem="DBl-AT-IPN" firstAttribute="top" secondItem="Llq-jv-57O" secondAttribute="bottom" id="yYb-M6-sSd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4tL-jL-KVR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="costSegmentedControl" destination="Fpb-ak-Q5y" id="Jjc-VM-zT7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="321"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="downArrow" width="40" height="35"/>
+        <image name="upArrow" width="40" height="35"/>
+    </resources>
 </document>
