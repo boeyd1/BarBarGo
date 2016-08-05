@@ -8,14 +8,17 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
 class ViewController: UIViewController, MKMapViewDelegate{
+    @IBOutlet weak var arrowButton: UIButton!
 
     @IBAction func arrowButtonPressed(sender: AnyObject) {
         costSegmentedControl.hidden = !costSegmentedControl.hidden
-    
+        arrowButton.selected = !arrowButton.selected
     }
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var costSegmentedControl: UISegmentedControl!
     
@@ -24,6 +27,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         costSegmentedControl.hidden = true
+        
+        
         
     }
 

@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,30 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need a drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wns-Cr-fYd">
-                                <rect key="frame" x="0.0" y="20" width="600" height="93"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Llq-jv-57O">
+                                <rect key="frame" x="0.0" y="20" width="600" height="450"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj5-Jw-b5l">
+                                <rect key="frame" x="230" y="120" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-3U-Vvp">
-                                <rect key="frame" x="290" y="113" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="W5A-Xf-g7W"/>
-                                    <constraint firstAttribute="width" constant="20" id="fsX-ci-jWk"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="upArrow"/>
-                                <state key="selected" image="downArrow"/>
-                                <connections>
-                                    <action selector="arrowButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZmC-dK-pEE"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Llq-jv-57O">
-                                <rect key="frame" x="0.0" y="166" width="600" height="304"/>
-                            </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-ak-Q5y">
-                                <rect key="frame" x="0.0" y="138" width="600" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-ak-Q5y">
+                                <rect key="frame" x="0.0" y="153" width="600" height="29"/>
+                                <color key="backgroundColor" red="0.77849858999999999" green="0.93819789210000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="$"/>
                                     <segment title="$$"/>
@@ -49,38 +38,68 @@
                                     <segment title="$$$$"/>
                                 </segments>
                             </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBl-AT-IPN">
-                                <rect key="frame" x="0.0" y="166" width="600" height="434"/>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need a drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wns-Cr-fYd">
+                                <rect key="frame" x="0.0" y="20" width="600" height="93"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-3U-Vvp" userLabel=" ">
+                                <rect key="frame" x="33" y="121" width="590" height="35"/>
+                                <state key="normal" image="upArrow"/>
+                                <state key="selected" image="downArrow"/>
+                                <connections>
+                                    <action selector="arrowButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZmC-dK-pEE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DBl-AT-IPN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="4tL-jL-KVR"/>
-                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7px-xl-eI5"/>
-                            <constraint firstItem="Llq-jv-57O" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="DMM-IQ-tYe"/>
-                            <constraint firstItem="Llq-jv-57O" firstAttribute="top" secondItem="Fpb-ak-Q5y" secondAttribute="bottom" id="GbG-cj-Fzb"/>
-                            <constraint firstItem="wns-Cr-fYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GcJ-UQ-YZL"/>
-                            <constraint firstItem="Llq-jv-57O" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="HHi-s6-U4W"/>
-                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="top" secondItem="wns-Cr-fYd" secondAttribute="bottom" id="Hmz-IP-ga3"/>
-                            <constraint firstItem="DBl-AT-IPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MVZ-xB-9LR"/>
-                            <constraint firstItem="Llq-jv-57O" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="QHr-cY-Vf3"/>
-                            <constraint firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="Ut1-eC-rz2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DBl-AT-IPN" secondAttribute="bottom" id="ZfQ-Me-8Ue"/>
-                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="bottom" secondItem="Fpb-ak-Q5y" secondAttribute="top" constant="-5" id="bqi-8m-cDJ"/>
-                            <constraint firstAttribute="trailing" secondItem="DBl-AT-IPN" secondAttribute="trailing" id="g5w-Tq-zeY"/>
-                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="ork-bs-UY5"/>
-                            <constraint firstItem="wns-Cr-fYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qX6-mD-B5b"/>
-                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="uAg-9g-PN8"/>
-                            <constraint firstItem="DBl-AT-IPN" firstAttribute="top" secondItem="Llq-jv-57O" secondAttribute="bottom" id="yYb-M6-sSd"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="1OG-aL-wSV"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1fc-Ve-V2x"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="3MH-Lh-Wpw"/>
+                            <constraint firstItem="wns-Cr-fYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="BHf-Z9-3wO"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="top" secondItem="Cca-3U-Vvp" secondAttribute="bottom" constant="5" id="H2C-Vd-AgC"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="top" secondItem="wns-Cr-fYd" secondAttribute="bottom" id="IER-vd-Xu8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wns-Cr-fYd" secondAttribute="trailing" constant="-20" id="JrX-ze-Hbs"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="L9D-C7-kJi"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" constant="10" id="O3q-ub-Exg"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RUo-Hs-meq"/>
+                            <constraint firstItem="wns-Cr-fYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wr5-Gb-D1B"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="top" secondItem="Gj5-Jw-b5l" secondAttribute="bottom" id="Wue-Bk-PKW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Llq-jv-57O" secondAttribute="bottom" constant="130" id="cfE-x7-WER"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="top" secondItem="Fpb-ak-Q5y" secondAttribute="bottom" id="cgN-w8-QzL"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="leading" secondItem="Fpb-ak-Q5y" secondAttribute="leading" id="cyA-2o-gFC"/>
+                            <constraint firstItem="Llq-jv-57O" firstAttribute="trailing" secondItem="Fpb-ak-Q5y" secondAttribute="trailing" id="erj-Ps-3p0"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="top" secondItem="Cca-3U-Vvp" secondAttribute="top" id="gZc-1M-hat"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="bottom" secondItem="Fpb-ak-Q5y" secondAttribute="bottom" id="jZo-yo-K39"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="leading" secondItem="wns-Cr-fYd" secondAttribute="leading" id="mhB-Ml-Eu4"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="top" secondItem="Gj5-Jw-b5l" secondAttribute="bottom" id="oeu-gT-G1C"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="leading" secondItem="Cca-3U-Vvp" secondAttribute="leading" id="rbb-kZ-vAF"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="trailing" secondItem="Cca-3U-Vvp" secondAttribute="trailing" id="smK-y2-Kqj"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="uNS-Cj-bck"/>
+                            <constraint firstItem="Fpb-ak-Q5y" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="vAD-rI-Y1t"/>
+                            <constraint firstItem="Cca-3U-Vvp" firstAttribute="trailing" secondItem="wns-Cr-fYd" secondAttribute="trailing" id="wJb-e6-yER"/>
+                            <constraint firstItem="Gj5-Jw-b5l" firstAttribute="top" secondItem="wns-Cr-fYd" secondAttribute="top" id="xg3-4i-zii"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="4tL-jL-KVR"/>
+                                <exclude reference="cgN-w8-QzL"/>
+                                <exclude reference="1OG-aL-wSV"/>
+                                <exclude reference="RUo-Hs-meq"/>
+                                <exclude reference="uNS-Cj-bck"/>
+                                <exclude reference="oeu-gT-G1C"/>
+                                <exclude reference="gZc-1M-hat"/>
+                                <exclude reference="jZo-yo-K39"/>
+                                <exclude reference="rbb-kZ-vAF"/>
+                                <exclude reference="smK-y2-Kqj"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="arrowButton" destination="Cca-3U-Vvp" id="eUo-1L-eGG"/>
                         <outlet property="costSegmentedControl" destination="Fpb-ak-Q5y" id="Jjc-VM-zT7"/>
+                        <outlet property="mapView" destination="Llq-jv-57O" id="R91-cm-XnN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
