@@ -44,7 +44,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = locationCoordinates
                 annotation.title = business.name
-                annotation.subtitle = "\(distance)m \(business.rating)"
+                annotation.subtitle = "\(distance)m | \(business.rating)⭐️"
                 mapView.addAnnotation(annotation)
             }
         }
@@ -66,7 +66,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
     }
     
     @IBAction func rightButtonTapped(sender: AnyObject) {
-        locationManager.requestLocation()
+        
     }
     
     override func viewDidLoad() {
