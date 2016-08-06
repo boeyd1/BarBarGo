@@ -28,9 +28,25 @@ class ViewController: UIViewController, MKMapViewDelegate{
             //update the view
             let coordinate = currentLocation?.coordinate
             
-            let region = MKCoordinateRegionMakeWithDistance(coordinate!, 1000, 1000)
+            let region = MKCoordinateRegionMakeWithDistance(coordinate!, 3000, 3000)
             
             self.mapView.setRegion(region, animated: false)
+            
+            for business in yelpBusinesses {
+                let businessLocationCoordinates = business.location.coordinate
+                
+                let locationCoordinates = CLLocationCoordinate2D(latitude:  (businessLocationCoordinates?.latitude)!, longitude: (businessLocationCoordinates?.longitude)!)
+                
+                let locationInCLLocation = CLLocation(latitude: (businessLocationCoordinates?.latitude)!, longitude: (businessLocationCoordinates?.longitude)!)
+                
+                let distance = Int((currentLocation?.distanceFromLocation(locationInCLLocation))!)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = locationCoordinates
+                annotation.title = business.name
+                annotation.subtitle = "\(distance)m \(business.rating)"
+                mapView.addAnnotation(annotation)
+            }
         }
     }
     
@@ -71,6 +87,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     
     func runYelpSearch(){
