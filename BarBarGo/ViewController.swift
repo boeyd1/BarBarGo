@@ -12,11 +12,10 @@ import CoreLocation
 import SwiftyJSON
 import YelpAPI
 
-
 class ViewController: UIViewController, MKMapViewDelegate{
-    
+
     var client: YLPClient!
-    var locationManager: CLLocationManager!
+    var locationManager = CLLocationManager()
     var currentLocation: CLLocation? {
         didSet{
             if currentLocation != nil{
@@ -27,15 +26,33 @@ class ViewController: UIViewController, MKMapViewDelegate{
     var yelpBusinesses : [YLPBusiness]! {
         didSet{
             //update the view
+            let coordinate = currentLocation?.coordinate
+            
+            let region = MKCoordinateRegionMakeWithDistance(coordinate!, 3000, 3000)
+            
+            self.mapView.setRegion(region, animated: false)
+            
+            for business in yelpBusinesses {
+                let businessLocationCoordinates = business.location.coordinate
+                
+                let locationCoordinates = CLLocationCoordinate2D(latitude:  (businessLocationCoordinates?.latitude)!, longitude: (businessLocationCoordinates?.longitude)!)
+                
+                let locationInCLLocation = CLLocation(latitude: (businessLocationCoordinates?.latitude)!, longitude: (businessLocationCoordinates?.longitude)!)
+                
+                let distance = Int((currentLocation?.distanceFromLocation(locationInCLLocation))!)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = locationCoordinates
+                annotation.title = business.name
+                annotation.subtitle = "\(distance)m | \(business.rating)⭐️"
+                mapView.addAnnotation(annotation)
+            }
         }
     }
     
     let updateDistance : Double = 50 //distance in meters user must move for update to trigger
     
     @IBOutlet weak var arrowButton: UIButton!
-    
-    
-
     @IBAction func arrowButtonPressed(sender: AnyObject) {
         costSegmentedControl.hidden = !costSegmentedControl.hidden
         arrowButton.selected = !arrowButton.selected
@@ -45,21 +62,33 @@ class ViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var costSegmentedControl: UISegmentedControl!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        client = YLPClient(consumerKey: CONSUMER_KEY, consumerSecret: CONSUMER_SECRET, token: YELP_TOKEN, tokenSecret: YELP_TOKEN_SECRET)
-        
-        locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-        locationManager.distanceFilter = updateDistance
-        
-        costSegmentedControl.hidden = true
+    @IBAction func leftButtonTapped(sender: AnyObject) {
+    }
+    
+    @IBAction func rightButtonTapped(sender: AnyObject) {
         
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        costSegmentedControl.hidden = true
+        self.mapView.delegate = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        client = YLPClient(consumerKey: CONSUMER_KEY, consumerSecret: CONSUMER_SECRET, token: YELP_TOKEN, tokenSecret: YELP_TOKEN_SECRET)
+        locationManager.distanceFilter = updateDistance
+
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
     
     func runYelpSearch(){
         let lat = Double((currentLocation?.coordinate.latitude)!)
@@ -87,14 +116,17 @@ class ViewController: UIViewController, MKMapViewDelegate{
         }
             
     }
-        
     
-
 }
 
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        currentLocation = locations[locations.count - 1] //get the last location in the array
+        currentLocation = locations.last //get the last location in the array
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error.localizedDescription)
+        
     }
 
 }

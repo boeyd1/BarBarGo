@@ -3,9 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>This app requires location service to determine your current location and provide information about nearby bars</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -17,6 +18,7 @@
 			</array>
 		</dict>
 	</array>
+
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
