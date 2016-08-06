@@ -7,7 +7,5 @@ target 'BarBarGo' do
 
   # Pods for BarBarGo
   pod 'SwiftyJSON'
-  pod 'Alamofire'
-  pod 'AlamofireImage'
-  pod 'AlamofireNetworkActivityIndicator'
+  pod 'YelpAPI'
 end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6565B6B5AE02F829F0C1072F /* Pods_BarBarGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */; };
 		CC6452E31D56053500938996 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6452E21D56053500938996 /* CoreLocation.framework */; };
+		CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452E51D560DE200938996 /* PrivateKeys.swift */; };
+		CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452EB1D560F8100938996 /* YelpExtension.swift */; };
 		FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */; };
 		FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDF1D52F390005B2F23 /* ViewController.swift */; };
 		FFFFCFE31D52F390005B2F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE11D52F390005B2F23 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarBarGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6452E21D56053500938996 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC6452E51D560DE200938996 /* PrivateKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeys.swift; sourceTree = "<group>"; };
+		CC6452EB1D560F8100938996 /* YelpExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpExtension.swift; sourceTree = "<group>"; };
 		FAA359D0F2D399E78126BE94 /* Pods-BarBarGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.release.xcconfig"; sourceTree = "<group>"; };
 		FCB12C9FB15C8833D4ACE139 /* Pods-BarBarGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.debug.xcconfig"; sourceTree = "<group>"; };
 		FFFFCFDA1D52F390005B2F23 /* BarBarGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarBarGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +56,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC6452E41D560DD500938996 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				CC6452E51D560DE200938996 /* PrivateKeys.swift */,
+			);
+			name = Private;
+			path = BarBarGo/Private;
+			sourceTree = "<group>";
+		};
+		CC6452EA1D560F7600938996 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CC6452EB1D560F8100938996 /* YelpExtension.swift */,
+			);
+			name = Helpers;
+			path = BarBarGo/Helpers;
+			sourceTree = "<group>";
+		};
 		EDB477B88B005A690BE689D6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +86,8 @@
 		FFFFCFD11D52F390005B2F23 = {
 			isa = PBXGroup;
 			children = (
+				CC6452EA1D560F7600938996 /* Helpers */,
+				CC6452E41D560DD500938996 /* Private */,
 				FFFFCFDC1D52F390005B2F23 /* BarBarGo */,
 				FFFFCFDB1D52F390005B2F23 /* Products */,
 				EDB477B88B005A690BE689D6 /* Pods */,
@@ -215,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */,
+				CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */,
 				FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */,
+				CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
