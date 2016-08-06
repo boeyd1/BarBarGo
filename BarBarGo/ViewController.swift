@@ -16,6 +16,21 @@ import YelpAPI
 class ViewController: UIViewController, MKMapViewDelegate{
     
     var client: YLPClient!
+    var locationManager: CLLocationManager!
+    var currentLocation: CLLocation? {
+        didSet{
+            if currentLocation != nil{
+                runYelpSearch()
+            }
+        }
+    }
+    var yelpBusinesses : [YLPBusiness]! {
+        didSet{
+            //update the view
+        }
+    }
+    
+    let updateDistance : Double = 50 //distance in meters user must move for update to trigger
     
     @IBOutlet weak var arrowButton: UIButton!
     
@@ -36,16 +51,25 @@ class ViewController: UIViewController, MKMapViewDelegate{
         
         client = YLPClient(consumerKey: CONSUMER_KEY, consumerSecret: CONSUMER_SECRET, token: YELP_TOKEN, tokenSecret: YELP_TOKEN_SECRET)
         
-        costSegmentedControl.hidden = true
-      
+        locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = updateDistance
         
-        runYelpSearch()
+        costSegmentedControl.hidden = true
+        
     }
     
     func runYelpSearch(){
-        let location = YLPGeoCoordinate(latitude: 48.2373425, longitude: -101.2706954, accuracy: 10000, altitude: 1000, altitudeAccuracy: 5000)
+        let lat = Double((currentLocation?.coordinate.latitude)!)
+        let lon = Double((currentLocation?.coordinate.longitude)!)
+        let alt = Double((currentLocation?.altitude)!)
         
-        client.searchWithGeoCoordinate(location) { (results: YLPSearch?, error:NSError?) -> Void in
+        let coordinate = YLPGeoCoordinate(latitude: lat, longitude: lon, accuracy: 1000, altitude: alt, altitudeAccuracy: alt)
+        let location = YLPCoordinate(latitude: lat, longitude: lon)
+        
+        client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: 20, offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
             if error != nil{
                 print(error)
                 return
@@ -56,11 +80,21 @@ class ViewController: UIViewController, MKMapViewDelegate{
                 for restaurant in results.businesses{
                     print(restaurant.name)
                 }
+                self.yelpBusinesses = results.businesses
             }
             
             
         }
+            
     }
+        
+    
 
 }
 
+extension ViewController: CLLocationManagerDelegate{
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        currentLocation = locations[locations.count - 1] //get the last location in the array
+    }
+
+}
