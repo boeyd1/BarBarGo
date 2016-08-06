@@ -1,0 +1,4 @@
+# gitignore
+## files containing private keys
+BarBarGo/Private/*
+BarBarGo/Helpers/*

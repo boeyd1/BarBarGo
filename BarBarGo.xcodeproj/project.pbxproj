@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6565B6B5AE02F829F0C1072F /* Pods_BarBarGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */; };
+		CC6452E31D56053500938996 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6452E21D56053500938996 /* CoreLocation.framework */; };
+		CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452E51D560DE200938996 /* PrivateKeys.swift */; };
+		CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452EB1D560F8100938996 /* YelpExtension.swift */; };
+		CC6452EE1D56341300938996 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6452ED1D56341300938996 /* MapKit.framework */; };
 		FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */; };
 		FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDF1D52F390005B2F23 /* ViewController.swift */; };
 		FFFFCFE31D52F390005B2F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE11D52F390005B2F23 /* Main.storyboard */; };
@@ -15,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarBarGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC6452E21D56053500938996 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC6452E51D560DE200938996 /* PrivateKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeys.swift; sourceTree = "<group>"; };
+		CC6452EB1D560F8100938996 /* YelpExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpExtension.swift; sourceTree = "<group>"; };
+		CC6452ED1D56341300938996 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FAA359D0F2D399E78126BE94 /* Pods-BarBarGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.release.xcconfig"; sourceTree = "<group>"; };
+		FCB12C9FB15C8833D4ACE139 /* Pods-BarBarGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.debug.xcconfig"; sourceTree = "<group>"; };
 		FFFFCFDA1D52F390005B2F23 /* BarBarGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarBarGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFFFCFDF1D52F390005B2F23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +41,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6452E31D56053500938996 /* CoreLocation.framework in Frameworks */,
+				CC6452EE1D56341300938996 /* MapKit.framework in Frameworks */,
+				6565B6B5AE02F829F0C1072F /* Pods_BarBarGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		866EDBF3A84D0AC3A6CDE36F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC6452ED1D56341300938996 /* MapKit.framework */,
+				CC6452E21D56053500938996 /* CoreLocation.framework */,
+				2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC6452E41D560DD500938996 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				CC6452E51D560DE200938996 /* PrivateKeys.swift */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		CC6452EA1D560F7600938996 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CC6452EB1D560F8100938996 /* YelpExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EDB477B88B005A690BE689D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCB12C9FB15C8833D4ACE139 /* Pods-BarBarGo.debug.xcconfig */,
+				FAA359D0F2D399E78126BE94 /* Pods-BarBarGo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FFFFCFD11D52F390005B2F23 = {
 			isa = PBXGroup;
 			children = (
 				FFFFCFDC1D52F390005B2F23 /* BarBarGo */,
 				FFFFCFDB1D52F390005B2F23 /* Products */,
+				EDB477B88B005A690BE689D6 /* Pods */,
+				866EDBF3A84D0AC3A6CDE36F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +106,8 @@
 		FFFFCFDC1D52F390005B2F23 /* BarBarGo */ = {
 			isa = PBXGroup;
 			children = (
+				CC6452EA1D560F7600938996 /* Helpers */,
+				CC6452E41D560DD500938996 /* Private */,
 				FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */,
 				FFFFCFDF1D52F390005B2F23 /* ViewController.swift */,
 				FFFFCFE11D52F390005B2F23 /* Main.storyboard */,
@@ -71,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFFFCFEC1D52F390005B2F23 /* Build configuration list for PBXNativeTarget "BarBarGo" */;
 			buildPhases = (
+				3B096D3F7ED1704342FFAD13 /* [CP] Check Pods Manifest.lock */,
 				FFFFCFD61D52F390005B2F23 /* Sources */,
 				FFFFCFD71D52F390005B2F23 /* Frameworks */,
 				FFFFCFD81D52F390005B2F23 /* Resources */,
+				9CE2F978EC08A3A9E36D7A31 /* [CP] Embed Pods Frameworks */,
+				374E63654807E2E8E55E8D67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +153,11 @@
 				TargetAttributes = {
 					FFFFCFD91D52F390005B2F23 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -130,13 +192,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		374E63654807E2E8E55E8D67 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B096D3F7ED1704342FFAD13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9CE2F978EC08A3A9E36D7A31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FFFFCFD61D52F390005B2F23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */,
+				CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */,
 				FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */,
+				CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +359,7 @@
 		};
 		FFFFCFED1D52F390005B2F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCB12C9FB15C8833D4ACE139 /* Pods-BarBarGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BarBarGo/Info.plist;
@@ -258,6 +371,7 @@
 		};
 		FFFFCFEE1D52F390005B2F23 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAA359D0F2D399E78126BE94 /* Pods-BarBarGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BarBarGo/Info.plist;
@@ -286,6 +400,7 @@
 				FFFFCFEE1D52F390005B2F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
