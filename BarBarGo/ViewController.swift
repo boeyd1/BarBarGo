@@ -51,6 +51,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
     }
     
     let updateDistance : Double = 50 //distance in meters user must move for update to trigger
+    let initialBarsLoaded : UInt = 20
     
     @IBOutlet weak var arrowButton: UIButton!
     @IBAction func arrowButtonPressed(sender: AnyObject) {
@@ -98,14 +99,13 @@ class ViewController: UIViewController, MKMapViewDelegate{
         let coordinate = YLPGeoCoordinate(latitude: lat, longitude: lon, accuracy: 1000, altitude: alt, altitudeAccuracy: alt)
         let location = YLPCoordinate(latitude: lat, longitude: lon)
         
-        client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: 20, offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
+        client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: initialBarsLoaded, offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
             if error != nil{
                 print(error)
                 return
             }
             
             if let results = results {
-                print(results)
                 for restaurant in results.businesses{
                     print(restaurant.name)
                 }
