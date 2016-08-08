@@ -1,25 +1,24 @@
 //
-//  RouteViewController.swift
+//  MapViewController.swift
 //  BarBarGo
 //
-//  Created by Desmond Boey on 7/8/16.
+//  Created by Desmond Boey on 8/8/16.
 //  Copyright © 2016 Make School. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import CoreLocation
 import MapKit
+import CoreLocation
 import SwiftyJSON
 import YelpAPI
 
-class RouteViewController: UIViewController, MKMapViewDelegate{
-     @IBOutlet weak var routePickerView: UIPickerView!
+
+class MapViewController: UIViewController {
+    @IBOutlet weak var routePickerView: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var barNameLabel: UILabel!
-    @IBOutlet weak var ratingsLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     
+    var containerVC : ContainerViewController?
     
     var directionData : [String] = [String]()
     var client: YLPClient!
@@ -49,19 +48,15 @@ class RouteViewController: UIViewController, MKMapViewDelegate{
         didSet{
             //update the view
             refreshMap()
-        
+            
         }
     }
-    
-   
-   
-    @IBOutlet weak var moreInfoButton: UIButton!
-    
+
     func refreshMap(){
         
         let yelpBusiness = yelpBusinesses[counter]
-        barNameLabel.text = yelpBusiness.name
-        ratingsLabel.text = "\(yelpBusiness.rating)⭐️ | \(yelpBusiness.reviewCount)"
+         containerVC!.barNameLabel.text = yelpBusiness.name
+         containerVC!.ratingsLabel.text = "\(yelpBusiness.rating)⭐️ | \(yelpBusiness.reviewCount)"
         
         
         let walkingRouteRequest = MKDirectionsRequest()
@@ -102,32 +97,6 @@ class RouteViewController: UIViewController, MKMapViewDelegate{
             self.routePickerView.reloadAllComponents()
         }
     }
-
-    
-    
-    @IBAction func moreInfoButtonTapped(sender: AnyObject) {
-        //performSegueWithIdentifier(<#T##identifier: String##String#>, sender: <#T##AnyObject?#>)
-        
-        //moreInfoButton should change to map icon
-        //unwinding should change back to ... icon
-    }
-    
-    
-    @IBAction func refreshButtonTapped(sender: AnyObject) {
-        runYelpSearch()
-        counter = 0
-        
-        refreshMap()
-    }
-    
-    @IBAction func nextBarButtonTapped(sender: AnyObject) {
-        if counter == searchLimit {
-            counter = 0
-        }else{
-        counter += 1
-        }
-        refreshMap()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,14 +110,7 @@ class RouteViewController: UIViewController, MKMapViewDelegate{
         
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
+
     func runYelpSearch(){
         let lat = Double((currentLocation?.coordinate.latitude)!)
         let lon = Double((currentLocation?.coordinate.longitude)!)
@@ -182,11 +144,12 @@ class RouteViewController: UIViewController, MKMapViewDelegate{
         draw.lineWidth = 3.0
         return draw
     }
-    
-    
+
+
+
 }
 
-extension RouteViewController: CLLocationManagerDelegate{
+extension MapViewController: CLLocationManagerDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         currentLocation = locations.last //get the last location in the array
         
@@ -205,7 +168,7 @@ extension RouteViewController: CLLocationManagerDelegate{
     
 }
 
-extension RouteViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -225,5 +188,5 @@ extension RouteViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         pickerLabel.numberOfLines = 3
         return pickerLabel
     }
-
+    
 }

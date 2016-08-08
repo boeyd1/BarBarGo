@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="245" y="321"/>
         </scene>
-        <!--Route View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="hOT-ti-flQ">
             <objects>
-                <viewController id="SQJ-M0-Nhd" customClass="RouteViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SQJ-M0-Nhd" customClass="ContainerViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GGZ-YF-yzQ"/>
                         <viewControllerLayoutGuide type="bottom" id="HW6-VA-Jhc"/>
@@ -198,7 +198,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-dg-KFk">
                                 <rect key="frame" x="0.0" y="130" width="600" height="420"/>
                                 <connections>
-                                    <segue destination="hds-xx-Ugt" kind="embed" id="VVd-eo-Uqe"/>
+                                    <segue destination="hds-xx-Ugt" kind="embed" identifier="embeddedMapVC" id="VVd-eo-Uqe"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -228,12 +228,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxK-Tm-doO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="1000"/>
+            <point key="canvasLocation" x="355" y="1022"/>
         </scene>
-        <!--Route View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="bFm-ah-nic">
             <objects>
-                <viewController id="hds-xx-Ugt" customClass="RouteViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hds-xx-Ugt" customClass="MapViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bzL-dw-TSw"/>
+                        <viewControllerLayoutGuide type="bottom" id="972-6g-FKQ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jMs-Xf-B5K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,10 +290,10 @@
             </objects>
             <point key="canvasLocation" x="355" y="1700"/>
         </scene>
-        <!--Route View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="R6K-NL-gkx">
             <objects>
-                <viewController id="hWa-uK-wCQ" customClass="RouteViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hWa-uK-wCQ" customClass="ReviewViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vl5-SX-oUv"/>
                         <viewControllerLayoutGuide type="bottom" id="jNe-6n-W5L"/>
