@@ -137,25 +137,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lt1-A7-vpg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lt1-A7-vpg">
                                 <rect key="frame" x="0.0" y="20" width="600" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="MFy-Nm-4Wu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2sl-gL-6eP">
                                 <rect key="frame" x="0.0" y="100" width="600" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-cR-f0W">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-cR-f0W">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-az-pzk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-az-pzk">
                                         <rect key="frame" x="300" y="0.0" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -283,7 +283,9 @@
                     <connections>
                         <outlet property="mapView" destination="NUe-R5-24T" id="BtG-fy-tOz"/>
                         <outlet property="routePickerView" destination="YPn-dc-xnB" id="llp-Wj-221"/>
-                        <segue destination="hWa-uK-wCQ" kind="show" identifier="displayReviewVC" id="KDj-IP-hmn"/>
+                        <segue destination="hWa-uK-wCQ" kind="popoverPresentation" identifier="displayReviewVC" popoverAnchorView="NUe-R5-24T" id="uoC-Ko-A7I">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHF-XZ-IT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,20 +295,38 @@
         <!--Review View Controller-->
         <scene sceneID="R6K-NL-gkx">
             <objects>
-                <viewController id="hWa-uK-wCQ" customClass="ReviewViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reviewViewController" id="hWa-uK-wCQ" customClass="ReviewViewController" customModule="BarBarGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vl5-SX-oUv"/>
                         <viewControllerLayoutGuide type="bottom" id="jNe-6n-W5L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nxb-z3-lKB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uzm-r8-sq3">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uzm-r8-sq3" firstAttribute="top" secondItem="Vl5-SX-oUv" secondAttribute="bottom" id="0n0-xt-eJB"/>
+                            <constraint firstItem="uzm-r8-sq3" firstAttribute="trailing" secondItem="Nxb-z3-lKB" secondAttribute="trailingMargin" id="3UU-oO-6TJ"/>
+                            <constraint firstItem="uzm-r8-sq3" firstAttribute="leading" secondItem="Nxb-z3-lKB" secondAttribute="leadingMargin" id="J6L-2L-Gmn"/>
+                            <constraint firstItem="uzm-r8-sq3" firstAttribute="bottom" secondItem="jNe-6n-W5L" secondAttribute="top" id="Xl0-zB-D7h"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="uzm-r8-sq3" id="Slu-t0-SIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kef-IB-suq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="1700"/>
+            <point key="canvasLocation" x="1075" y="1660"/>
         </scene>
     </scenes>
     <resources>

@@ -12,15 +12,15 @@
 		CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452E51D560DE200938996 /* PrivateKeys.swift */; };
 		CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452EB1D560F8100938996 /* YelpExtension.swift */; };
 		CC6452EE1D56341300938996 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6452ED1D56341300938996 /* MapKit.framework */; };
-		FF19AEBA1D579BD900D24C63 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEB91D579BD900D24C63 /* ContainerViewController.swift */; };
 		FF19AEC01D579D3900D24C63 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEBF1D579D3900D24C63 /* MapViewController.swift */; };
 		FF19AEC21D579D4100D24C63 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEC11D579D4100D24C63 /* ReviewViewController.swift */; };
+		FF19AEC41D58E00200D24C63 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEC31D58E00200D24C63 /* ContainerViewController.swift */; };
+		FFDE021D1D59C03600EDEDB8 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */; };
 		FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */; };
 		FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDF1D52F390005B2F23 /* ViewController.swift */; };
 		FFFFCFE31D52F390005B2F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE11D52F390005B2F23 /* Main.storyboard */; };
 		FFFFCFE51D52F390005B2F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE41D52F390005B2F23 /* Assets.xcassets */; };
 		FFFFCFE81D52F390005B2F23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE61D52F390005B2F23 /* LaunchScreen.storyboard */; };
-		FFFFCFF31D56BF7D005B2F23 /* PointColorAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFF21D56BF7D005B2F23 /* PointColorAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,10 @@
 		CC6452ED1D56341300938996 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FAA359D0F2D399E78126BE94 /* Pods-BarBarGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.release.xcconfig"; sourceTree = "<group>"; };
 		FCB12C9FB15C8833D4ACE139 /* Pods-BarBarGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarBarGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarBarGo/Pods-BarBarGo.debug.xcconfig"; sourceTree = "<group>"; };
-		FF19AEB91D579BD900D24C63 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = Private/ContainerViewController.swift; sourceTree = "<group>"; };
 		FF19AEBF1D579D3900D24C63 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FF19AEC11D579D4100D24C63 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		FF19AEC31D58E00200D24C63 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		FFFFCFDA1D52F390005B2F23 /* BarBarGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarBarGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFFFCFDF1D52F390005B2F23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		FFFFCFE41D52F390005B2F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFFFCFE71D52F390005B2F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFFFCFE91D52F390005B2F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFFFCFF21D56BF7D005B2F23 /* PointColorAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointColorAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CC6452EB1D560F8100938996 /* YelpExtension.swift */,
-				FFFFCFF21D56BF7D005B2F23 /* PointColorAnnotation.swift */,
+				FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -117,7 +117,7 @@
 			children = (
 				CC6452EA1D560F7600938996 /* Helpers */,
 				CC6452E41D560DD500938996 /* Private */,
-				FF19AEB91D579BD900D24C63 /* ContainerViewController.swift */,
+				FF19AEC31D58E00200D24C63 /* ContainerViewController.swift */,
 				FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */,
 				FFFFCFDF1D52F390005B2F23 /* ViewController.swift */,
 				FFFFCFE11D52F390005B2F23 /* Main.storyboard */,
@@ -259,11 +259,11 @@
 			files = (
 				FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */,
 				CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */,
-				FF19AEBA1D579BD900D24C63 /* ContainerViewController.swift in Sources */,
+				FFDE021D1D59C03600EDEDB8 /* NotificationHelper.swift in Sources */,
 				FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */,
 				CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */,
-				FFFFCFF31D56BF7D005B2F23 /* PointColorAnnotation.swift in Sources */,
 				FF19AEC01D579D3900D24C63 /* MapViewController.swift in Sources */,
+				FF19AEC41D58E00200D24C63 /* ContainerViewController.swift in Sources */,
 				FF19AEC21D579D4100D24C63 /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

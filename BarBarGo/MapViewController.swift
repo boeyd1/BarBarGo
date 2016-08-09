@@ -14,7 +14,7 @@ import SwiftyJSON
 import YelpAPI
 
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var routePickerView: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -24,6 +24,11 @@ class MapViewController: UIViewController {
     var client: YLPClient!
     var locationManager = CLLocationManager()
     var walkingRoute : MKRoute!
+    var reviews : String! {
+        didSet{
+            NotificationHelper.notification.postNotificationName(NotificationHelper.ntfnBroadcast, object: self, userInfo: ["userReview":reviews])
+        }
+    }
     
     var counter = 0
     let searchLimit = 20
@@ -47,7 +52,9 @@ class MapViewController: UIViewController {
     var yelpBusinesses : [YLPBusiness]! {
         didSet{
             //update the view
-            refreshMap()
+            dispatch_async(dispatch_get_main_queue(),{
+            self.refreshMap()
+            })
             
         }
     }
@@ -56,8 +63,19 @@ class MapViewController: UIViewController {
         
         let yelpBusiness = yelpBusinesses[counter]
          containerVC!.barNameLabel.text = yelpBusiness.name
-         containerVC!.ratingsLabel.text = "\(yelpBusiness.rating)⭐️ | \(yelpBusiness.reviewCount)"
+         containerVC!.ratingsLabel.text = "\(yelpBusiness.rating)⭐️ | \(yelpBusiness.reviewCount) reviews"
         
+        
+        
+        //add first 8 reviews to review string
+        reviews = ""
+        var numReviews = 0
+        for review in yelpBusiness.reviews!{
+            if numReviews < 8 {
+            addToReview(review.excerpt)
+            numReviews += 1
+            }
+        }
         
         let walkingRouteRequest = MKDirectionsRequest()
         
@@ -77,25 +95,45 @@ class MapViewController: UIViewController {
         
         let walkingRouteDirections = MKDirections(request: walkingRouteRequest)
         
-        walkingRouteDirections.calculateDirectionsWithCompletionHandler { (response: MKDirectionsResponse?, error: NSError?) in
-            if let error = error {
-                print(error.localizedDescription)
+        
+            walkingRouteDirections.calculateDirectionsWithCompletionHandler { (response: MKDirectionsResponse?, error: NSError?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                
+                let overlays = self.mapView.overlays
+                self.mapView.removeOverlays(overlays)
+                
+                self.walkingRoute = response!.routes[0]
+                self.mapView.addOverlay(self.walkingRoute.polyline, level: MKOverlayLevel.AboveRoads)
+                
+                self.mapView.setVisibleMapRect(self.walkingRoute.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(35.0, 35.0, 35.0, 35.0) , animated: true)
+                
+                self.directionData = [String]()
+                
+                for routeStep in self.walkingRoute.steps{
+                    self.directionData.append("\(routeStep.instructions) in \(Int(routeStep.distance))m")
+                }
+                self.routePickerView.reloadAllComponents()
             }
-            
-            
-            let overlays = self.mapView.overlays
-            self.mapView.removeOverlays(overlays)
-            
-            self.walkingRoute = response!.routes[0]
-            self.mapView.addOverlay(self.walkingRoute.polyline, level: MKOverlayLevel.AboveRoads)
-            
-            self.mapView.setVisibleMapRect(self.walkingRoute.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(35.0, 35.0, 35.0, 35.0) , animated: true)
-            
-            for routeStep in self.walkingRoute.steps{
-                self.directionData.append("\(routeStep.instructions) in \(Int(routeStep.distance))m")
-            }
-            self.routePickerView.reloadAllComponents()
-        }
+        
+        
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = barLocationCoordinates2D
+        annotation.title = "Horizontal Distance:"
+        
+        let distance = currentLocation?.distanceFromLocation(CLLocation(latitude:  (barLocation?.latitude)!, longitude: (barLocation?.longitude)!))
+        
+        annotation.subtitle = "\(Int(distance!)) meters"
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    func addToReview(review: String){
+        reviews.appendContentsOf("\"\(review)\"")
+        reviews.appendContentsOf("\n\n")
+        
     }
     
     override func viewDidLoad() {
@@ -108,7 +146,38 @@ class MapViewController: UIViewController {
         locationManager.distanceFilter = updateDistance
         locationManager.startUpdatingLocation()
         
+        self.mapView.delegate = self
+        self.routePickerView.delegate = self
+        self.routePickerView.dataSource = self
         
+        
+        
+    }
+    
+    
+    func showPopover(base: UIView)
+    {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("reviewViewController") as? ReviewViewController {
+            
+            let navController = UINavigationController(rootViewController: viewController)
+            
+            navController.modalPresentationStyle = .Popover
+            
+            
+            if let pctrl = navController.popoverPresentationController {
+                pctrl.delegate = self
+                
+                pctrl.sourceView = base
+                pctrl.sourceRect = base.bounds
+            
+                self.presentViewController(navController, animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
 
     func runYelpSearch(){
@@ -119,22 +188,25 @@ class MapViewController: UIViewController {
         let coordinate = YLPGeoCoordinate(latitude: lat, longitude: lon, accuracy: 1000, altitude: alt, altitudeAccuracy: alt)
         let location = YLPCoordinate(latitude: lat, longitude: lon)
         
-        client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: UInt(searchLimit), offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
-            if error != nil{
-                print(error)
-                return
-            }
+        
             
-            if let results = results {
-                print(results)
-                for restaurant in results.businesses{
-                    print(restaurant.name)
+            self.client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: UInt(self.searchLimit), offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
+                if error != nil{
+                    print(error)
+                    return
                 }
-                self.yelpBusinesses = results.businesses
+                
+                if let results = results {
+                    print(results)
+                    for restaurant in results.businesses{
+                        print(restaurant.name)
+                    }
+                    self.yelpBusinesses = results.businesses
+                }
+                
+                
             }
-            
-            
-        }
+        
         
     }
     
