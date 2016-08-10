@@ -15,7 +15,7 @@
 		FF19AEC01D579D3900D24C63 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEBF1D579D3900D24C63 /* MapViewController.swift */; };
 		FF19AEC21D579D4100D24C63 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEC11D579D4100D24C63 /* ReviewViewController.swift */; };
 		FF19AEC41D58E00200D24C63 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19AEC31D58E00200D24C63 /* ContainerViewController.swift */; };
-		FFDE021D1D59C03600EDEDB8 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */; };
+		FF47DD6F1D5B6FBC006A5F33 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF47DD6E1D5B6FBC006A5F33 /* NotificationHelper.swift */; };
 		FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */; };
 		FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFFCFDF1D52F390005B2F23 /* ViewController.swift */; };
 		FFFFCFE31D52F390005B2F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFFCFE11D52F390005B2F23 /* Main.storyboard */; };
@@ -34,7 +34,7 @@
 		FF19AEBF1D579D3900D24C63 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FF19AEC11D579D4100D24C63 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		FF19AEC31D58E00200D24C63 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		FF47DD6E1D5B6FBC006A5F33 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		FFFFCFDA1D52F390005B2F23 /* BarBarGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarBarGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFFCFDD1D52F390005B2F23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFFFCFDF1D52F390005B2F23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CC6452EB1D560F8100938996 /* YelpExtension.swift */,
-				FFDE021C1D59C03600EDEDB8 /* NotificationHelper.swift */,
+				FF47DD6E1D5B6FBC006A5F33 /* NotificationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			files = (
 				FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */,
 				CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */,
-				FFDE021D1D59C03600EDEDB8 /* NotificationHelper.swift in Sources */,
+				FF47DD6F1D5B6FBC006A5F33 /* NotificationHelper.swift in Sources */,
 				FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */,
 				CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */,
 				FF19AEC01D579D3900D24C63 /* MapViewController.swift in Sources */,
