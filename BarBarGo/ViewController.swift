@@ -82,13 +82,6 @@ class ViewController: UIViewController, MKMapViewDelegate{
 
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
     func runYelpSearch(){
         let lat = Double((currentLocation?.coordinate.latitude)!)

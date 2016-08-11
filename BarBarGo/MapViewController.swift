@@ -13,7 +13,7 @@ import CoreLocation
 import SwiftyJSON
 import YelpAPI
 
-
+// TODO: change this into a better organized subclass of map view, not its own controller
 class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var routePickerView: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
@@ -59,23 +59,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         }
     }
 
+    // Refreshes entire view controller using a ref to previous view controller.
     func refreshMap(){
         
         let yelpBusiness = yelpBusinesses[counter]
          containerVC!.barNameLabel.text = yelpBusiness.name
          containerVC!.ratingsLabel.text = "\(yelpBusiness.rating)⭐️ | \(yelpBusiness.reviewCount) reviews"
         
-        
-        
-        //add first 8 reviews to review string
-        reviews = ""
-        var numReviews = 0
-        for review in yelpBusiness.reviews!{
-            if numReviews < 8 {
-            addToReview(review.excerpt)
-            numReviews += 1
-            }
-        }
         
         let walkingRouteRequest = MKDirectionsRequest()
         
@@ -150,30 +140,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.routePickerView.delegate = self
         self.routePickerView.dataSource = self
         
-        
-        
-    }
-    
-    
-    func showPopover(base: UIView)
-    {
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("reviewViewController") as? ReviewViewController {
-            
-            let navController = UINavigationController(rootViewController: viewController)
-            
-            navController.modalPresentationStyle = .Popover
-            
-            
-            if let pctrl = navController.popoverPresentationController {
-                pctrl.delegate = self
-                
-                pctrl.sourceView = base
-                pctrl.sourceRect = base.bounds
-            
-                self.presentViewController(navController, animated: true, completion: nil)
-                
-            }
-        }
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -188,9 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let coordinate = YLPGeoCoordinate(latitude: lat, longitude: lon, accuracy: 1000, altitude: alt, altitudeAccuracy: alt)
         let location = YLPCoordinate(latitude: lat, longitude: lon)
         
-        
-            
-            self.client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: UInt(self.searchLimit), offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
+        self.client.searchWithGeoCoordinate(coordinate, currentLatLong: location, term: "bar", limit: UInt(self.searchLimit), offset: 0, sort: YLPSortType.Distance) { (results: YLPSearch?, error:NSError?) -> Void in
                 if error != nil{
                     print(error)
                     return
@@ -203,11 +167,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                     }
                     self.yelpBusinesses = results.businesses
                 }
-                
-                
             }
-        
-        
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -216,8 +176,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         draw.lineWidth = 3.0
         return draw
     }
-
-
 
 }
 
