@@ -165,7 +165,7 @@
                                     <constraint firstAttribute="height" constant="30" id="dbA-Sq-dRc"/>
                                 </constraints>
                             </stackView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ut0-xa-dn4">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ut0-xa-dn4" customClass="MapView" customModule="BarBarGo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="138" width="600" height="326"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0kU-YA-KXr">
@@ -179,14 +179,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEL-gv-9GN">
-                                        <rect key="frame" x="263" y="0.0" width="179" height="50"/>
+                                        <rect key="frame" x="263" y="0.0" width="178.5" height="50"/>
                                         <state key="normal" title="More"/>
                                         <connections>
                                             <action selector="moreInfoButtonTapped:" destination="SQJ-M0-Nhd" eventType="touchUpInside" id="aiJ-Pl-HRA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-SN-t0d">
-                                        <rect key="frame" x="442" y="0.0" width="159" height="50"/>
+                                        <rect key="frame" x="441" y="0.0" width="158.5" height="50"/>
                                         <state key="normal" title="Next"/>
                                         <connections>
                                             <action selector="nextBarButtonTapped:" destination="SQJ-M0-Nhd" eventType="touchUpInside" id="9yy-Nd-4Uc"/>
@@ -197,16 +197,26 @@
                                     <constraint firstAttribute="height" constant="50" id="BK6-WZ-Xex"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvQ-hA-PhZ">
+                                <rect key="frame" x="20" y="464" width="560" height="86"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0kU-YA-KXr" firstAttribute="top" secondItem="ut0-xa-dn4" secondAttribute="bottom" constant="86" id="AFZ-dp-SkF"/>
+                            <constraint firstItem="xvQ-hA-PhZ" firstAttribute="centerX" secondItem="cEc-Rj-eeP" secondAttribute="centerX" id="Bw4-1k-Qga"/>
                             <constraint firstItem="Lt1-A7-vpg" firstAttribute="top" secondItem="GGZ-YF-yzQ" secondAttribute="bottom" id="DGa-uK-mOT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ut0-xa-dn4" secondAttribute="trailing" constant="-20" id="Dj8-fL-Jb7"/>
+                            <constraint firstItem="0kU-YA-KXr" firstAttribute="top" secondItem="xvQ-hA-PhZ" secondAttribute="bottom" id="FY5-Qw-l53"/>
                             <constraint firstItem="2sl-gL-6eP" firstAttribute="leading" secondItem="cEc-Rj-eeP" secondAttribute="leading" id="JFw-RD-V7g"/>
                             <constraint firstItem="2sl-gL-6eP" firstAttribute="top" secondItem="Lt1-A7-vpg" secondAttribute="bottom" id="KcR-4y-1Ab"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xvQ-hA-PhZ" secondAttribute="trailing" id="Mic-8b-Zqf"/>
                             <constraint firstAttribute="trailing" secondItem="2sl-gL-6eP" secondAttribute="trailing" id="NID-nZ-maM"/>
                             <constraint firstItem="ut0-xa-dn4" firstAttribute="centerX" secondItem="cEc-Rj-eeP" secondAttribute="centerX" id="T2w-gv-0se"/>
+                            <constraint firstItem="xvQ-hA-PhZ" firstAttribute="top" secondItem="ut0-xa-dn4" secondAttribute="bottom" id="VbC-Ai-xzZ"/>
                             <constraint firstItem="HW6-VA-Jhc" firstAttribute="top" secondItem="0kU-YA-KXr" secondAttribute="bottom" id="Yil-V0-UAc"/>
                             <constraint firstAttribute="trailing" secondItem="Lt1-A7-vpg" secondAttribute="trailing" id="fHO-4n-tt7"/>
                             <constraint firstItem="ut0-xa-dn4" firstAttribute="top" secondItem="2sl-gL-6eP" secondAttribute="bottom" constant="8" id="ifx-uf-kgo"/>
@@ -217,6 +227,7 @@
                     </view>
                     <connections>
                         <outlet property="barNameLabel" destination="Lt1-A7-vpg" id="I8o-BL-miz"/>
+                        <outlet property="directionsLabel" destination="xvQ-hA-PhZ" id="NEc-ZS-PDr"/>
                         <outlet property="map" destination="ut0-xa-dn4" id="Boo-y5-HoB"/>
                         <outlet property="moreInfoButton" destination="nEL-gv-9GN" id="L6X-P8-6ha"/>
                         <outlet property="priceLabel" destination="Rp2-az-pzk" id="7no-Eu-t4H"/>

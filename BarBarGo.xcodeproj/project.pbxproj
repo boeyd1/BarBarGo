@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6565B6B5AE02F829F0C1072F /* Pods_BarBarGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */; };
+		CC0D395B1D5CE76F00A7354B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D395A1D5CE76F00A7354B /* MapView.swift */; };
+		CC0D395D1D5E3D9A00A7354B /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D395C1D5E3D9A00A7354B /* RatingsView.swift */; };
 		CC6452E31D56053500938996 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6452E21D56053500938996 /* CoreLocation.framework */; };
 		CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452E51D560DE200938996 /* PrivateKeys.swift */; };
 		CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6452EB1D560F8100938996 /* YelpExtension.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		2281D6470AB3E20DB8EF6F2F /* Pods_BarBarGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarBarGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0D395A1D5CE76F00A7354B /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CC0D395C1D5E3D9A00A7354B /* RatingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
 		CC6452E21D56053500938996 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CC6452E51D560DE200938996 /* PrivateKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeys.swift; sourceTree = "<group>"; };
 		CC6452EB1D560F8100938996 /* YelpExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpExtension.swift; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		CC0D39591D5CE75C00A7354B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC0D395A1D5CE76F00A7354B /* MapView.swift */,
+				CC0D395C1D5E3D9A00A7354B /* RatingsView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		CC6452E41D560DD500938996 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +136,7 @@
 		FFFFCFDC1D52F390005B2F23 /* BarBarGo */ = {
 			isa = PBXGroup;
 			children = (
+				CC0D39591D5CE75C00A7354B /* Views */,
 				CC0D39571D5CDA1000A7354B /* View Controllers */,
 				CC6452EA1D560F7600938996 /* Helpers */,
 				CC6452E41D560DD500938996 /* Private */,
@@ -263,8 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFFFCFE01D52F390005B2F23 /* ViewController.swift in Sources */,
+				CC0D395B1D5CE76F00A7354B /* MapView.swift in Sources */,
 				CC6452EC1D560F8100938996 /* YelpExtension.swift in Sources */,
 				FF47DD6F1D5B6FBC006A5F33 /* NotificationHelper.swift in Sources */,
+				CC0D395D1D5E3D9A00A7354B /* RatingsView.swift in Sources */,
 				FFFFCFDE1D52F390005B2F23 /* AppDelegate.swift in Sources */,
 				CC6452E61D560DE200938996 /* PrivateKeys.swift in Sources */,
 				FF19AEC01D579D3900D24C63 /* MapViewController.swift in Sources */,
