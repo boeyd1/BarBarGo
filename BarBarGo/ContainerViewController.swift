@@ -16,8 +16,8 @@ import YelpAPI
 class ContainerViewController: UIViewController{
     
     @IBOutlet weak var barNameLabel: UILabel!
-    @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var ratingsView: RatingsView!
     @IBOutlet weak var directionsLabel: UILabel!
 
     @IBOutlet weak var map: MapView!
@@ -25,7 +25,6 @@ class ContainerViewController: UIViewController{
     var locationManager = CLLocationManager()
     var currentLocation : CLLocation!
     var client : YLPClient!
-    var mapVC : MapViewController?
     var yelpBusinesses : [YLPBusiness]!
     var yelpBusinessCache = [YLPBusiness]()
     var yelpBusinessIndex : Int = 0 {
@@ -38,7 +37,7 @@ class ContainerViewController: UIViewController{
                 map.currentTarget = targetLoc
                 //TODO: update the header
                 barNameLabel.text = business.name
-                ratingsLabel.text = "\(business.rating)"
+                ratingsView.set(Rating: business.rating, withReviews: (business.reviews?.count)!)
             }
         }
     }

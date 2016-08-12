@@ -148,14 +148,37 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2sl-gL-6eP">
                                 <rect key="frame" x="0.0" y="100" width="600" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-cR-f0W">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-az-pzk">
-                                        <rect key="frame" x="300" y="0.0" width="300" height="30"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-De-bKc" customClass="RatingsView" customModule="BarBarGo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="558" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHS-r8-1n7">
+                                                <rect key="frame" x="240" y="4.5" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W4q-17-bxO">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="H84-vB-4Fl"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="NHS-r8-1n7" firstAttribute="leading" secondItem="W4q-17-bxO" secondAttribute="trailing" id="9Iw-iY-yal"/>
+                                            <constraint firstItem="W4q-17-bxO" firstAttribute="top" secondItem="cOs-De-bKc" secondAttribute="top" id="gHd-6j-FEe"/>
+                                            <constraint firstItem="NHS-r8-1n7" firstAttribute="centerY" secondItem="cOs-De-bKc" secondAttribute="centerY" id="iqe-x9-JG6"/>
+                                            <constraint firstItem="W4q-17-bxO" firstAttribute="centerY" secondItem="cOs-De-bKc" secondAttribute="centerY" id="qXg-Mf-57H"/>
+                                            <constraint firstItem="W4q-17-bxO" firstAttribute="leading" secondItem="cOs-De-bKc" secondAttribute="leading" id="sK1-TN-RhP"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="reviews" destination="NHS-r8-1n7" id="eCp-B4-hse"/>
+                                            <outlet property="stars" destination="W4q-17-bxO" id="Nph-Qb-tRJ"/>
+                                        </connections>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-az-pzk">
+                                        <rect key="frame" x="558" y="0.0" width="42" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -179,14 +202,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEL-gv-9GN">
-                                        <rect key="frame" x="263" y="0.0" width="178.5" height="50"/>
+                                        <rect key="frame" x="263" y="0.0" width="179" height="50"/>
                                         <state key="normal" title="More"/>
                                         <connections>
                                             <action selector="moreInfoButtonTapped:" destination="SQJ-M0-Nhd" eventType="touchUpInside" id="aiJ-Pl-HRA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-SN-t0d">
-                                        <rect key="frame" x="441" y="0.0" width="158.5" height="50"/>
+                                        <rect key="frame" x="442" y="0.0" width="159" height="50"/>
                                         <state key="normal" title="Next"/>
                                         <connections>
                                             <action selector="nextBarButtonTapped:" destination="SQJ-M0-Nhd" eventType="touchUpInside" id="9yy-Nd-4Uc"/>
@@ -231,7 +254,7 @@
                         <outlet property="map" destination="ut0-xa-dn4" id="Boo-y5-HoB"/>
                         <outlet property="moreInfoButton" destination="nEL-gv-9GN" id="L6X-P8-6ha"/>
                         <outlet property="priceLabel" destination="Rp2-az-pzk" id="7no-Eu-t4H"/>
-                        <outlet property="ratingsLabel" destination="3AC-cR-f0W" id="087-34-aB7"/>
+                        <outlet property="ratingsView" destination="cOs-De-bKc" id="FEa-Az-uhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxK-Tm-doO" userLabel="First Responder" sceneMemberID="firstResponder"/>
